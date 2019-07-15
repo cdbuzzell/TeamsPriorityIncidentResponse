@@ -26,6 +26,9 @@ In the future, I plan to include more complex capabilities, including calling th
 7. Test it by adding a new Incident in ServiceNow with the **Impact** and **Urgency** both set to **High**
 
 ## ADVANCED
+### Create a new App Registration in Azure Active Directory
+- See the [Teams Requests repo](https://github.com/cdbuzzell/TeamsRequests#register-an-application-in-azure-active-directory) for instructions on how to Register an Application in AAD
+
 ### Create a flow in Microsoft Flow
 1. Browse to https://flow.microsoft.com
 2. Click on **My flows**
@@ -53,13 +56,15 @@ In the future, I plan to include more complex capabilities, including calling th
 ![Flow Post Message](Images/Flow-PostMessage.jpg)
 9. Alter this Flow to meet your needs, save it, then copy the HTTP POST URL from the trigger
 
+**Note:** see the [TeamsRequests Flow](https://github.com/cdbuzzell/TeamsRequests/blob/master/TeamsCreationGovernance.zip) for an example of how to create a Team (instead of a channel) for every Incident
+
 Your Flow should look something like this:
 ![Flow Canvas](Images/Flow-Canvas.jpg)
 
 TODO: Test with PostMan
 
 ### Create ServiceNow Outbound REST Message to call Microsoft Flow
-Notice: I am not an expert at anything, especially ServiceNow.
+**Notice:** I am not an expert at anything, especially ServiceNow.
 1. In ServiceNow, under System Web Services > Outbound, click on REST Message and create a new one.
 2. Truncate your flow URL up to the *invoke* part of the path and enter that as the Endpoint (it won't let us just paste the whole URI, so enter everything before the ? mark, we'll add the rest of the URI [query string] later). Set Authentication to "No authentication"
 ![ServiceNow REST Message Authentication](Images/SN-REST-Auth.png)
