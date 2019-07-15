@@ -59,6 +59,7 @@ Your Flow should look something like this:
 TODO: Test with PostMan
 
 ### Create ServiceNow Action to call Microsoft Flow
+TODO: remove this section
 Notice: I am not an expert at anything, especially ServiceNow.
 1. Open **Action Designer** in ServiceNow
 2. Create a new Action
@@ -70,6 +71,20 @@ Notice: I am not an expert at anything, especially ServiceNow.
 5. Add Outputs
 ![ServiceNow Action Outputs](Images/SN-Action-Outputs.png)
 6. Save and Publish
+
+### Create ServiceNow Outbound REST Message to call Microsoft Flow
+Notice: I am not an expert at anything, especially ServiceNow.
+1. In ServiceNow, under System Web Services > Outbound, click on REST Message and create a new one.
+2. Truncate your flow URL up to the *invoke* part of the path and enter that as the Endpoint (it won't let us just paste the whole URI, so enter everything before the ? mark, we'll add the rest of the URI [query string] later). Set Authentication to "No authentication"
+![ServiceNow REST Message Authentication](Images/SN-REST-Auth.png)
+3. Add an HTTP Header for Content-Type
+![ServiceNow REST Message Request](Images/SN-REST-Request.png)
+4. Add/use the Default POST HTTP Method
+![ServiceNow HTTP Post 1](Images/SN-REST-Post1.png)
+5. Copy/paste the json from #5 above into the *Content* field and replace values with variables (example: *${variableName}*)
+6. Add the four Query Paramters that we stripped onf the URL in #2. Pro tip: replace the *%2F* in teh *sp* parameter with */* (*/triggers/manual/run*)
+![ServiceNow HTTP Post 1](Images/SN-REST-Post2.png)
+7. Add variable substitutions and Test
 
 ### Update ServiceNow Flow to call Microsoft Flow
 Note: I have not gotten this to successfully execute the Microsoft Flow we created above. It calls it, but the flow fails because it doesn't have anything in the body of the request. Working on it.
