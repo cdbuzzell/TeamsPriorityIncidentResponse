@@ -58,20 +58,6 @@ Your Flow should look something like this:
 
 TODO: Test with PostMan
 
-### Create ServiceNow Action to call Microsoft Flow
-TODO: remove this section
-Notice: I am not an expert at anything, especially ServiceNow.
-1. Open **Action Designer** in ServiceNow
-2. Create a new Action
-3. Add Inputs that match the attributes in the sample payload used in the Flow above
-![ServiceNow Action Inputs](Images/SN-Action-Inputs.png)
-4. Add a REST step. You'll need to split up the host, path, and query string of the URL from the Microsoft Flow into separate attributes as shown here:
-![ServiceNow Action REST Step 1](Images/SN-Action-REST1.png)
-![ServiceNow Action REST Step 2](Images/SN-Action-REST2.png)
-5. Add Outputs
-![ServiceNow Action Outputs](Images/SN-Action-Outputs.png)
-6. Save and Publish
-
 ### Create ServiceNow Outbound REST Message to call Microsoft Flow
 Notice: I am not an expert at anything, especially ServiceNow.
 1. In ServiceNow, under System Web Services > Outbound, click on REST Message and create a new one.
@@ -86,10 +72,6 @@ Notice: I am not an expert at anything, especially ServiceNow.
 ![ServiceNow HTTP Post 1](Images/SN-REST-Post2.png)
 7. Add variable substitutions and Test
 
-### Update ServiceNow Flow to call Microsoft Flow
-Note: I have not gotten this to successfully execute the Microsoft Flow we created above. It calls it, but the flow fails because it doesn't have anything in the body of the request. Working on it.
-1. Open the ServiceNow flow you created in the BASIC section
-2. Add an action, selecting **Global** to filter down to see the action you created
-3. Set the inputs of the action to values from the Trigger -> Incident Record
-![ServiceNow Flow Advanced](Images/SN-Flow-Advanced.png)
-4. I hardcoded the triageMembers in my example, but you should look up who should be contacted according to your incident response process.
+### Create ServiceNow workflow to call REST Message
+1. Call the REST Message we created above in your existing Workflow or create a new Workflow.
+2. TODO: document creating a new Workflow
