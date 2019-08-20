@@ -54,12 +54,17 @@ In the future, I plan to include more complex capabilities, including calling th
 ![Flow Compose](Images/Flow-Compose.jpg)
 8. Add an action to **Post a message as the Flow bot to a user (Preview)** in **Microsoft Teams** (when you drop the Output of the Compose action into the Recipient field, the system will automatically add the **Apply to each** action)
 ![Flow Post Message](Images/Flow-PostMessage.jpg)
-9. Alter this Flow to meet your needs, save it, then copy the HTTP POST URL from the trigger
+9. Add an action for **Response**
+
+![Flow Post Message](Images/Flow-Response.png)
+
+10. Alter this Flow to meet your needs, save it, then copy the HTTP POST URL from the trigger
 
 **Note:** see the [TeamsRequests Flow](https://github.com/cdbuzzell/TeamsRequests/blob/master/TeamsCreationGovernance.zip) for an example of how to create a Team (instead of a channel) for every Incident
 
 Your Flow should look something like this:
-![Flow Canvas](Images/Flow-Canvas.jpg)
+
+![Flow Canvas](Images/Flow-Canvas.png)
 
 TODO: Test with PostMan
 
