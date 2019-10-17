@@ -78,6 +78,15 @@ TODO: Test with PostMan
 4. Add/use the Default POST HTTP Method
 ![ServiceNow HTTP Post 1](Images/SN-REST-Post1.png)
 5. Copy/paste the json from #5 above into the *Content* field and replace values with variables (example: *${variableName}*)
+    ```json
+    {
+        "incident":"${incident}",
+        "title":"${title}",
+        "description":"${description}",
+        "url":"${url}",
+        "triageMembers":"${members}"
+    }
+    ```
 6. Add the four Query Paramters that we stripped off the URL in #2. Pro tip: replace the *%2F* in the *sp* parameter with */* (*/triggers/manual/run*)
 ![ServiceNow HTTP Post 1](Images/SN-REST-Post2.png)
 7. Add variable substitutions and Test
