@@ -4,15 +4,15 @@ Enable more connected and complex incident response scenarios by posting message
 This example starts with a Priority Incident being created in ServiceNow, which will trigger a workflow that posts a message to Teams via REST, after which you can stand up a Teams meeting and invite participants to begin triage, record the meeting, chat, share screens, etc.
 
 ## Basic: post a message in a Teams channel from ServiceNow
-1. [Create an incoming webhook in Microsoft Teams](#xreate-an-incoming-webhook-in-microsoft-teams)
+1. [Create an incoming webhook in Microsoft Teams](#create-an-incoming-webhook-in-microsoft-teams)
 2. [Create ServiceNow Outbound REST Message to call Microsoft Power Automate](#create-servicenow-outbound-rest-message-to-call-microsoft-power-automate)
-3. [Create ServiceNow workflow to post message to Microsoft Teams](#create-servicenow-workflow-to-post-message-to-microsoft-teams)
+3. [Create ServiceNow workflow to post message to Microsoft Teams](#create-servicenow-workflow-to-call-rest-message)
 
 ## Advanced: call a PowerAutomate flow from ServiceNow that can notify people, create teams, etc.
-1. Create a new App Registration in Azure Active Directory
-2. Create a flow in Microsoft Power Automate
-3. Create ServiceNow Outbound REST Message to call Microsoft Power Automate
-4. Create ServiceNow workflow to call REST Message
+1. [Create a new App Registration in Azure Active Directory](#create-a-new-app-registration-in-azure-active-directory)
+2. [Create a flow in Microsoft Power Automate](#create-a-flow-in-microsoft-power-automate)
+3. [Create ServiceNow Outbound REST Message to call Microsoft Power Automate](#create-servicenow-outbound-rest-message-to-call-microsoft-power-automate-1)
+4. [Create ServiceNow workflow to call REST Message](#create-servicenow-workflow-to-call-rest-message-1)
 
 ## BASIC
 ### Create an incoming webhook in Microsoft Teams
