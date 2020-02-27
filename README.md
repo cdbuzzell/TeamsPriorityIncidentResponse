@@ -37,17 +37,17 @@ This example starts with a Priority Incident being created in ServiceNow, which 
 **Notice:** I am not an expert at anything, especially ServiceNow.
 1. In ServiceNow, under `System Web Services` > `Outbound`, click on `REST Message`
 ![ServiceNow REST Message 1](Images/SNOW-REST-1.png)
-2. Create a new one REST Message with the following properties:
-    - Name: Teams Service Desk Incidents Webhook
-    - Accessible from: All application scopes
-    - Description: Call the Webhook configured in Microsoft Teams in the Incidents channel of the Service Desk team
-    - Endpoint: [paste in the incoming webhook URL that was generated above in Basic step 1]
-    - Add an HTTP Header for Content-Type: application/json
+2. Create a new REST Message with the following properties:
+    - **Name**: Teams Service Desk Incidents Webhook
+    - **Accessible from**: All application scopes
+    - **Description**: Call the Webhook configured in Microsoft Teams in the Incidents channel of the Service Desk team
+    - **Endpoint**: [paste in the incoming webhook URL that was generated above in Basic step 1]
+    - Add an HTTP Header for Content-Type: `application/json`
 ![ServiceNow REST Message 1](Images/SNOW-REST-2.png)
-3. Add a Default POST HTTP Method
+3. Add a `Default POST` HTTP Method
 ![ServiceNow REST Message 3](Images/SNOW-REST-3.png)
 ![ServiceNow REST Message 4](Images/SNOW-REST-4.png)
-4. Set the Content field:
+4. Set the `Content` field:
 ```
 {
     "@type": "MessageCard",
@@ -94,7 +94,7 @@ This example starts with a Priority Incident being created in ServiceNow, which 
 }
 ```
 
-7. Add the following variable substitutions and Test
+7. Add the following variable substitutions and `Test`
 ![ServiceNow REST Message 5](Images/SNOW-REST-5.png)
 
 ### Create ServiceNow workflow to call REST Message
@@ -128,9 +128,9 @@ Add a Result parameter to the Output and drag it to the right:
 
 ### Create a flow in Microsoft Power Automate
 1. Browse to https://flow.microsoft.com
-2. Click on **My flows**
-3. Click **New -> Instant**, then click **Skip**
-4. Add a **When a HTTP request is received** trigger
+2. Click on `My flows`
+3. Click `New -> Instant`, then click `Skip`
+4. Add a `When a HTTP request is received` trigger
 ![Flow Trigger](Images/Flow-Trigger.jpg)
 5. Use this sample payload (feel free to alter it to fit your needs) to generate the schema for this action (the URL will show up after you save this flow):
     ```json
@@ -146,17 +146,17 @@ Add a Result parameter to the Output and drag it to the right:
 
 6. Add actions to post a message in Teams or create a Team (see how to do that [here](https://github.com/cdbuzzell/TeamsRequests#create-power-automate-flow)) or whatever your business requirements dictate.
 
-7. Add a **Compose** action to split the comma-delimited triageMembers email addresses into an array
+7. Add a `Compose` action to split the comma-delimited triageMembers email addresses into an array
 
     split(triggerBody()?['triageMembers'],',')
 ![Flow Compose](Images/Flow-Compose.jpg)
-8. Add an action to **Post a message as the Flow bot to a user (Preview)** in **Microsoft Teams** (when you drop the Output of the Compose action into the Recipient field, the system will automatically add the **Apply to each** action)
+8. Add an action to `Post a message as the Flow bot to a user (Preview)` in `Microsoft Teams` (when you drop the Output of the Compose action into the Recipient field, the system will automatically add the `Apply to each` action)
 ![Flow Post Message](Images/Flow-PostMessage.jpg)
-9. Add an action for **Response**
+9. Add an action for `Response`
 
 ![Flow Post Message](Images/Flow-Response.png)
 
-10. Alter this Flow to meet your needs, save it, then copy the HTTP POST URL from the trigger
+10. Alter this Flow to meet your needs, save it, then copy the `HTTP POST URL` from the trigger
 
 Your Flow should look something like this:
 
@@ -169,9 +169,9 @@ TODO: Test with PostMan
 1. In ServiceNow, under System Web Services > Outbound, click on REST Message and create a new one.
 2. Truncate your flow URL up to the *invoke* part of the path and enter that as the Endpoint (it won't let us just paste the whole URI, so enter everything before the ? mark, we'll add the rest of the URI [query string] later). Set Authentication to "No authentication"
 ![ServiceNow REST Message Authentication](Images/SN-REST-Auth.png)
-3. Add an HTTP Header for Content-Type
+3. Add an `HTTP Header` for `Content-Type`
 ![ServiceNow REST Message Request](Images/SN-REST-Request.png)
-4. Add/use the Default POST HTTP Method
+4. Add/use the `Default POST` HTTP Method
 ![ServiceNow HTTP Post 1](Images/SN-REST-Post1.png)
 5. Copy/paste the json from #5 above into the *Content* field and replace values with variables (example: *${variableName}*)
     ```json
@@ -183,7 +183,7 @@ TODO: Test with PostMan
         "triageMembers":"${members}"
     }
     ```
-6. Add the four Query Paramters that we stripped off the URL in #2. Pro tip: replace the *%2F* in the *sp* parameter with */* (*/triggers/manual/run*)
+6. Add the four Query Parameters that we stripped off the URL in #2. Pro tip: replace the *%2F* in the *sp* parameter with */* (*/triggers/manual/run*)
 ![ServiceNow HTTP Post 1](Images/SN-REST-Post2.png)
 7. Add variable substitutions and Test
 
