@@ -8,6 +8,8 @@ This example starts with a Priority Incident being created in ServiceNow, which 
 2. [Create ServiceNow Outbound REST Message to call Microsoft Power Automate](#create-servicenow-outbound-rest-message-to-call-microsoft-power-automate)
 3. [Create ServiceNow workflow to post message to Microsoft Teams](#create-servicenow-workflow-to-call-rest-message)
 
+![Teams Message](Images/Teams-Message.png)
+
 ## Advanced: call a PowerAutomate flow from ServiceNow that can notify people, create teams, etc.
 1. [Create a new App Registration in Azure Active Directory](#create-a-new-app-registration-in-azure-active-directory)
 2. [Create a flow in Microsoft Power Automate](#create-a-flow-in-microsoft-power-automate)
@@ -119,7 +121,8 @@ Add a Result parameter to the Output and drag it to the right:
 ![ServiceNow Workflow 9](Images/SNOW-WF-9.png)
 9. Move the arrows around until you get: Begin -> Teams Webhook for Incidents -> End
 10.	Publish the workflow
-11.	Test it by adding an Incident with Urgency = High
+11.	Test it by adding an Incident with Urgency = High, you should get a message posted to Teams that looks similar to this:
+![Teams Message](Images/Teams-Message.png)
 
 
 ## ADVANCED
