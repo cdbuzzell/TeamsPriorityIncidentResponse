@@ -126,9 +126,6 @@ Add a Result parameter to the Output and drag it to the right:
 
 
 ## ADVANCED
-### Create a new App Registration in Azure Active Directory
-- See the [Teams Requests repo](https://github.com/cdbuzzell/TeamsRequests#register-an-application-in-azure-active-directory) for instructions on how to Register an Application in AAD
-
 ### Create a flow in Microsoft Power Automate
 1. Browse to https://flow.microsoft.com
 2. Click on `My flows`
