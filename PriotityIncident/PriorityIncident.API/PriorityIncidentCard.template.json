@@ -1,0 +1,144 @@
+{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.2",
+  "body": [
+    {
+      "type": "Container",
+      "items": [
+        {
+          "type": "ColumnSet",
+          "columns": [
+            {
+              "type": "Column",
+              "width": "auto",
+              "items": [
+                {
+                  "type": "TextBlock",
+                  "text": "${if(status == 'Active', '\u26d4', if(status == 'Mitigated', '\u26A0', '\u2705'))}",
+                  "size": "ExtraLarge"
+                }
+              ],
+              "separator": false
+            },
+            {
+              "type": "Column",
+              "width": "auto",
+              "items": [
+                {
+                  "type": "TextBlock",
+                  "text": "[${status}]",
+                  "color": "${if(status == 'Active', 'attention', if(status == 'Mitigated', 'warning', 'good'))}",
+                  "size": "ExtraLarge"
+                }
+              ],
+              "separator": false
+            },
+            {
+              "type": "Column",
+              "width": "auto",
+              "items": [
+                {
+                  "type": "TextBlock",
+                  "text": "${priority}",
+                  "size": "ExtraLarge",
+                  "color": "${if(priority == 'High', 'attention', if(priority == 'Medium', 'warning', 'good'))}"
+                }
+              ],
+              "separator": false
+            },
+            {
+              "type": "Column",
+              "width": "auto",
+              "items": [
+                {
+                  "type": "TextBlock",
+                  "text": "${id}",
+                  "size": "ExtraLarge"
+                }
+              ],
+              "separator": false
+            }
+          ],
+          "separator": false
+        },
+        {
+          "type": "TextBlock",
+          "text": "${title}",
+          "size": "Medium",
+          "weight": "Bolder"
+        },
+        {
+          "type": "FactSet",
+          "facts": [
+            {
+              "title": "Opened",
+              "value": "${opened}"
+            },
+            {
+              "title": "Category",
+              "value": "${category} "
+            },
+            {
+              "title": "Impact",
+              "value": "${impact} "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ColumnSet",
+      "columns": [
+        {
+          "type": "Column",
+          "width": "auto",
+          "items": [
+            {
+              "type": "ActionSet",
+              "actions": [
+                {
+                  "type": "Action.OpenUrl",
+                  "title": "Details",
+                  "url": "https://YOURINSTANCE.service-now.com/nav_to.do?uri=incident.do?sysparm_query=number=${id}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "auto",
+          "items": [
+            {
+              "type": "ActionSet",
+              "actions": [
+                {
+                  "type": "Action.OpenUrl",
+                  "title": "Contacts",
+                  "url": "https://bing.com"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "auto",
+          "items": [
+            {
+              "type": "ActionSet",
+              "actions": [
+                {
+                  "type": "Action.OpenUrl",
+                  "title": "Links",
+                  "url": "http://bing.com"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

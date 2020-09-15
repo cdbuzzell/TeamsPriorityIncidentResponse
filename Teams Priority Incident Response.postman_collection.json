@@ -1,0 +1,115 @@
+{
+	"info": {
+		"_postman_id": "7d81f8c9-662e-4248-93d3-6648bff61d27",
+		"name": "Teams Priority Incident Response",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Notify of new Priority Incident",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c176b36a-eec5-440f-9a77-a863f5f39e6d",
+						"exec": [
+							"// set token variable used by other requests\r",
+							"var jsonData = pm.response.json();\r",
+							"var messageId = jsonData.id;\r",
+							"pm.collectionVariables.set(\"MessageId\", messageId)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"INC0000002\",\r\n    \"title\": \"Big problem with a critical system\",\r\n    \"description\": \"More details to come...\",\r\n    \"status\": \"Active\",\r\n    \"urgency\": \"High\",\r\n    \"priority\": \"High\",\r\n    \"impact\": \"Large\",\r\n    \"category\": \"Critical Infrastructure\",\r\n    \"opened\": \"2020-09-15T09:40:00.000Z\",\r\n    \"closed\": \"2020-09-15T09:40:00.000Z\",\r\n    \"openedBy\": \"Megan Bowen\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:49199/api/notify",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49199",
+					"path": [
+						"api",
+						"notify"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update an existing notification",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"INC0000002\",\r\n    \"title\": \"Big problem with a critical system\",\r\n    \"description\": \"More details to come...\",\r\n    \"status\": \"Mitigated\",\r\n    \"urgency\": \"High\",\r\n    \"priority\": \"High\",\r\n    \"impact\": \"Large\",\r\n    \"category\": \"Critical Infrastructure\",\r\n    \"opened\": \"2020-09-15T09:40:00.000Z\",\r\n    \"closed\": \"2020-09-15T09:40:00.000Z\",\r\n    \"openedBy\": \"Corey Buzzell\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:49199/api/notify/{{MessageId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49199",
+					"path": [
+						"api",
+						"notify",
+						"{{MessageId}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "582d2a04-92e5-49ac-bd2f-958f149e7503",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "e9af5da5-cf4f-4450-9ff2-2221dc8e20ef",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "b0dc5e35-b00b-4076-b5b8-cdc1c8e8edc9",
+			"key": "MessageId",
+			"value": ""
+		}
+	],
+	"protocolProfileBehavior": {}
+}
