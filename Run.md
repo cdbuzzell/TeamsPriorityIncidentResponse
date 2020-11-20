@@ -2,6 +2,8 @@
 [HOME](README.md) | [CRAWL](Crawl.md) | [WALK](Walk.md) | Run
 ## RUN: C# Bot
 
+This project allows one to post an adaptive card to a channel in a team in Microsoft Teams via REST API POST. One can also update that card via REST API PUT. These card messages are posted/updated using a Bot.
+
 ![Teams message](Images/Run-Message.jpg)
 
 ## Prerequisites

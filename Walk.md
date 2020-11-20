@@ -6,15 +6,6 @@
 3. [Create ServiceNow Outbound REST Message to call Microsoft Power Automate](#create-servicenow-outbound-rest-message-to-call-microsoft-power-automate-1)
 4. [Create ServiceNow workflow to call REST Message](#create-servicenow-workflow-to-call-rest-message-1)
 
-### Pros and Cons
-TODO: table?
-
-Pros
-- blah
-
-Cons
-- blah
-
 ### Create a flow in Microsoft Power Automate
 1. Browse to https://flow.microsoft.com
 2. Click on `My flows`

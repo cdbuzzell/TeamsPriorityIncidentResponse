@@ -7,15 +7,6 @@
 
 ![Teams Message](Images/Teams-Message.png)
 
-### Pros and Cons
-TODO: table?
-
-Pros
-- blah
-
-Cons
-- blah
-
 ### Create an incoming webhook in Microsoft Teams
 1. In Microsoft Teams, create a team named `Service Desk` (if you don't already have a team you want to use)
 2. Add a Channel named `Incidents`
