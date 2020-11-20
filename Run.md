@@ -46,8 +46,8 @@
 1. Run your API project (in Debug mode in IIS Express)
 2. Open [Postman](https://www.postman.com/downloads/)
 3. Import [this collection](Teams%20Priority%20Incident%20Response.postman_collection.json) into Postman
-4. Open the `Post a new message to a channel` request and `Send` it
+4. Open the `Notify of new Priority Incident` request and `Send` it
    - Note: This request saves the value of `id` from the response to a collection variable to be used by the next request
 5. Check your channel in Teams to see the message
-6. Open the `Update an existing message in a channel` request and `Send` it
+6. Open the `Update an existing notification` request and `Send` it
 7. Check your channel in Teams to see the updated message
